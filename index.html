@@ -9,27 +9,27 @@
 <body>
     <div>
         <div>
-            <h1>Pokedex</h1>
+            <h1>Pokédex</h1>
         </div>
         <div>
             <div>
                 <p>
-                    Enter the name of the Pokemon here:
+                    Search for a Pokémon by name:
                 </p>
                 <form action="" onsubmit="return false">
                     <input id="nameInput" type="text" placeholder="ditto">
-                    <input type="submit" id="submit"></input>
+                    <button type="submit" id="submit">Search!</button>
                 </form>
             </div>
-            <div id="pokemonPhoto"></div>
-            <div id="abilities"></div>
-            <div id='type'></div>
-        </div>
+            <p id="pokemonPhoto"></p>
+            <ul id="abilities"></ul>
+            <p id='type'></p>
+        </>
 
         <div>
             <br><br>
-            <p>Click here to generate a random pokemon!</p>
-            <input id="randomSubmit" type='submit'>
+            <p>Click below to generate a random pokemon!</p>
+            <button id="randomSubmit" type='submit'>Generate!</button>
             <div id="randomPokemonName"></div>
             <div id="ranPokemonPhoto"></div>
             <div id="ranAbilities"></div>

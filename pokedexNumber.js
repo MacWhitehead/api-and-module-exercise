@@ -16,27 +16,16 @@ async function pullRandom() {
 
 export async function getRandom() {
     let randomPokeData = await pullRandom();
-    let thePhoto = randomPokeData.sprites.front_default;
-    let pokeName = randomPokeData.name;
-    let pokemonType = randomPokeData.types[0].type.name;
-    randomPokeName.innerHTML = `<p> Name: ${pokeName} </p>`
-    addRanPhoto.innerHTML = `<img src="${thePhoto}">`;
-    ranType.innerHTML = `<p> Type: ${pokemonType} </p>`;
+    randomPokeName.innerHTML = `<h5> Name: </h5> <p> ${randomPokeData.name} </p>`
+    addRanPhoto.innerHTML = `<img src="${randomPokeData.sprites.front_default}">`;
+    ranType.innerHTML = `<h5> Type: </h5> <p> ${randomPokeData.types[0].type.name} </p>`;
     checkRanAbilities(randomPokeData);
 }
 
 export function checkRanAbilities(getPokemonData) {
-    let ability1 = 'not learned yet';
-    let ability2 = "not learned yet";
-    let ability3 = "not learned yet";
-    if (getPokemonData.abilities[0]) {
-        ability3 = getPokemonData.abilities[0].ability.name;
+    ranAbilities.innerHTML = ''
+    ranAbilities.innerHTML += `<h5> Abilities: </h5>`
+    for(let i = 0; i < getPokemonData.abilities.length; i++) {
+        ranAbilities.innerHTML+= `<li>${getPokemonData.abilities[i].ability.name}</li>`
     }
-    if (getPokemonData.abilities[1]) {
-        ability3 = getPokemonData.abilities[1].ability.name;
-    }
-    if (getPokemonData.abilities[2]) {
-        ability3 = getPokemonData.abilities[2].ability.name;
-    }
-    ranAbilities.innerHTML = `<p> Abilities: ${ability1}, ${ability2}, & ${ability3} `
 }
